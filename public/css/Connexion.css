@@ -1,0 +1,33 @@
+form{
+
+width: 35%;
+text-align: 100px;
+display: block;
+}
+
+.form-control{
+
+    width: 35%
+}
+
+body{
+
+    background-color:#e9ecef !important;
+
+}
+
+.cc-navbar{
+
+background-color: rgba(255,255,255,1);
+}
+
+.btn-primary{
+
+  color:darkorange;
+  border-color: darkorange; 
+  transition: 0.5s;
+}
+
+
+    
+
