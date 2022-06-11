@@ -8,6 +8,6 @@
 </head>
 <body>
     <li><a class="dropdown-item" href="{{ route('login_user') }}">se deconnecter</a></li>
-    
+
 </body>
 </html>
