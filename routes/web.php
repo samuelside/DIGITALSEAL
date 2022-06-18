@@ -68,6 +68,7 @@ Route::prefix('utilisateur')->group(function(){
     Route::get('/register', [UtilisateurController::class, 'UtilisateurRegister'])->name('utilisateur.register');
 
     Route::post('/register/create', [UtilisateurController::class, 'UtilisateurRegisterCreate'])->name('utilisateur.register.create');
+    Route::get('/consult',[UtilisateurController::class, 'consult'])->name('consult1');
 
     });
 
@@ -94,6 +95,7 @@ Route::post('/verified', [CertificateController::class, 'verified_certificate'])
 Route::get('/liste', [CertificateController::class, 'show_liste'])->name('liste_certificat');
 Route::post('/verified', [CEVController::class, 'verified'])->name('verifions');
 Route::get('/verifions',[CEVController::class,'show_page_verification'])->name('verif');
+
 
 
 Route::get('/', function () {

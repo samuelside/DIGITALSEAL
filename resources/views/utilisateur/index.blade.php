@@ -9,6 +9,7 @@
 <body>
     <li><a class="dropdown-item" href="{{ route('login_from') }}">se deconnecter</a></li>
     <li><a class="dropdown-item" href="{{ route('verif') }}">Vérifier le certificat</a></li>
+    <li><a class="dropdown-item" href="{{ route('consult1') }}">Vérifier le certificat</a></li>
 
 </body>
 </html>

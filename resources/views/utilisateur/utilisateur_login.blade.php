@@ -13,10 +13,7 @@
         <form action="{{ route('utilisateur.login') }}" method='post'>
             @csrf
             <h1>CONNEXION UTILISATEUR</h1>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Nom de l'organisation </label>
-                <input type="text" class="form-control" id="NomOrga" name='NomOrga' placeholder=" ">
-            </div>
+            
             <div class="form-group">
                 <label for="exampleInputEmail1">Entrer votre adresse email</label>
                 <input type="Email" class="form-control" id="email" name='email' aria-describedby="emailHelp"

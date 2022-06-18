@@ -22,7 +22,7 @@ class utilisateur extends  Authenticatable
         'name',
         'email',
         'password',
-        'NomOrga',
+        
     ];
 
     /**

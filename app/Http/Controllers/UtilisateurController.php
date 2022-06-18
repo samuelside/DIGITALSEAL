@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\utilisateur;
 use Carbon\Carbon;
+use App\Models\Admin;
 
 class UtilisateurController extends Controller
 {
@@ -23,7 +24,7 @@ class UtilisateurController extends Controller
 
     public function Login(Request $request){
     $check=$request->all();
-    if (Auth::guard('utilisateur')->attempt(['email'=>$check['email'],'password'=> $check ['password'],'NomOrga'=>$check ['NomOrga'] ])){
+    if (Auth::guard('utilisateur')->attempt(['email'=>$check['email'],'password'=> $check ['password'] ])){
     return redirect()->route('utilisateur.dashboard')->with('error','vous etes connecté');
     }
 else {
@@ -52,7 +53,6 @@ else {
         'name'=> $request->name,
         'email'=> $request->email,
         'password'=> Hash::make($request->password),
-        'NomOrga'=> $request->NomOrga,
         'created_at'=> Carbon::now(),
 
      ]); 
@@ -61,5 +61,12 @@ else {
 
      return redirect()->route('login_from')->with('error','utlisateur  Created Success'); 
 
-    } 
+    }
+    
+    public function consult(){
+        $admins=Admin::all();
+        //dd($admins);
+        return view('consult_voir',compact('admins'));
+
+    }
 }

@@ -49,6 +49,7 @@ class AdminController extends Controller
         return view('admin.admin_register');
     }
 
+<<<<<<< HEAD
     public function AdminRegisterCreate(Request $request)
     {
         $request->validate([
@@ -69,4 +70,31 @@ class AdminController extends Controller
 
         return redirect()->route('login_admin')->with('error', 'Admin Created Success');
     }
+=======
+    public function AdminRegisterCreate(Request $request){
+
+      Admin::insert([
+        'categorie'=>$request->categorie,
+         'NomCommercial'=>$request->NomCommercial,
+        'CodePostal'=>$request->CodePostal,
+        'Pays'=>$request->Pays,
+        'name'=> $request->name,
+        'prenom'=>$request->prenom,
+        'CNI'=>$request->CNI,
+        'email'=> $request->email,
+        'password'=> Hash::make($request->password),
+        'identifiant'=> $request->identifiant,
+        'created_at'=> Carbon::now(),
+
+     ]); 
+
+     //dd($admin);
+
+     return redirect()->route('login_admin')->with('error','Admin Created Success'); 
+
+    } 
+
+
+    
+>>>>>>> a58da6b0854f1e9fe7100ee93bef7c072e855fcf
 }

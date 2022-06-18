@@ -14,9 +14,46 @@
             @csrf
             <h1>ENREGISTREMENT ADMINISTRATEUR</h1>
             <div class="form-group">
-                <label for="exampleInputEmail1">Entrer votre nom</label>
-                <input type="text" class="form-control" id="name" name='name' placeholder="Nom">
+                <select name="categorie" size="1">←
+                    <option value="Administration publique"> Administration publique </option>
+                    <option value="Administration privée">Administration privée </option>
+                    <option value="ONG">ONG</option>
+                    </select>
             </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Nom Commercial </label>
+                <input type="text" class="form-control" id="NomCommercial" name='NomCommercial' placeholder="">
+            </div>
+
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Code Postal </label>
+                <input type="text" class="form-control" id="CodePostal" name='CodePostal' placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Pays d'origine </label>
+                <input type="text" class="form-control" id="Pays" name='Pays' placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Numéro  CNI </label>
+                <input type="text" class="form-control" id="CNI" name='CNI' placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Entrer votre nom</label>
+                <input type="text" class="form-control" id="name" name='name' placeholder="">
+            </div>
+            
+            <div class="form-group">
+                <label for="exampleInputEmail1">Entrer votre prenom </label>
+                <input type="text" class="form-control" id="prenom" name='prenom' placeholder="">
+            </div>
+            
+
+
             <div class="form-group">
                 <label for="exampleInputEmail1">Votre identifiant</label>
                 <input type="text" class="form-control" id="identifiant" name='identifiant'>
