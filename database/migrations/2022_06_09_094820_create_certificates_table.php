@@ -16,11 +16,15 @@ class CreateCertificatesTable extends Migration
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('Pays');
             $table->string('Nom_Orga');
-            $table->string('ID_AC');
             $table->string('email_server');
-            $table->string('id_Certificate');
+            $table->string('Numero_serie');
+            $table->string('DteOrigin');
+            $table->string('Dtefin');
             $table->timestamp('email_verified_at')->nullable();
+
+          
         
             
         });

@@ -11,7 +11,7 @@
 @section('contenu')
 
 
-<h1> Noms des participants </h1>
+<h1> Liste des certificats </h1>
 
 <table>
     <thead>

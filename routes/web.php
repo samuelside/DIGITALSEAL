@@ -69,6 +69,7 @@ Route::prefix('utilisateur')->group(function(){
 
     Route::post('/register/create', [UtilisateurController::class, 'UtilisateurRegisterCreate'])->name('utilisateur.register.create');
     Route::get('/consult',[UtilisateurController::class, 'consult'])->name('consult1');
+    Route::post('/create',[UtilisateurController::class, 'create_annuaire'])->name('create');
 
     });
 

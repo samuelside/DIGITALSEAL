@@ -10,10 +10,12 @@ class certificate extends Model
     use HasFactory;
 
     protected $fillable = [
+        'Pays',
         'Nom_Orga',
-        'ID_AC',
         'email_server',
-        'id_Certificate'
+        'Numero_serie',
+        'DteOrigin',
+        'Dtefin'
         
     ];
 }

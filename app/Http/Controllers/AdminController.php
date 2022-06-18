@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use App\Models\certificate;
 use Carbon\Carbon;
 use Illuminate\Auth\SessionGuard;
 
@@ -70,6 +71,11 @@ else {
 
     } 
 
+    public function consult(){
+        $certificate=certificate::all();
+        //dd($admins);
+        return view('certif_voir',compact('certificate'));
+    }
 
     
 }

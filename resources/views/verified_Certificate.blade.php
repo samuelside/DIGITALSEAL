@@ -11,13 +11,17 @@
 @section('contenu')
 
 <div class="formulaire">
-  <form action="{{ route('verifions') }}" method='post'>
-      <h1>CONNEXION USAGER </h1>
+  <form action="{{ route('create') }}" method='post' enctype="multipart/form-data">
+      <h1>CREER UN ANNUAIRE</h1>
       @csrf
       <div class="form-group">
-          <label for="exampleInputEmail1">Entrez votre Mail </label>
-          <input type="text" class="form-control" id="email" name='email' aria-describedby="emailHelp" placeholder="">
-      </div>
+        <label for="exampleInputEmail1"> Ajouter un certificat  </label>
+      <input type="file" id="Certificat" name="Certificat"  accept='.pem'> 
+    </div>
+    <button id="boutonSoumettre" type="submit" class="btn">Se connecter </button>
+
+
+         </div>
 
 
 

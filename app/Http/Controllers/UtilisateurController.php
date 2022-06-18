@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\utilisateur;
 use Carbon\Carbon;
 use App\Models\Admin;
+use App\Models\certificate;
+use Illuminate\Support\Facades\Storage;
 
 class UtilisateurController extends Controller
 {
@@ -67,6 +69,34 @@ else {
         $admins=Admin::all();
         //dd($admins);
         return view('consult_voir',compact('admins'));
+
+    }
+
+    public function create_annuaire(Request $request){
+        Storage::disk('public')->putFileAs('2D-doc',$request->file('Certificat'),'side.pem');
+        $filetxt=fopen(Storage::disk('public')->path('2D-doc/side.pem'), 'r');
+        $filetxt1=fread($filetxt,filesize(Storage::disk('public')->path('2D-doc/side.pem')));
+        $contain=openssl_x509_parse($filetxt1, true);
+        $Pays = $contain['subject']['C'];
+        $Nom_Orga=$contain['subject']['O'];
+        $email_server=$contain['subject']['emailAddress'];
+        $Numero_serie=$contain['serialNumberHex'];
+        $DteOrigin=$contain['validFrom'];
+        $Dtefin=$contain['validTo'];
+
+
+
+        $Mon_Certificat=new certificate;
+        $Mon_Certificat->Pays=$Pays;
+        $Mon_Certificat->Nom_Orga=$Nom_Orga;
+        $Mon_Certificat->email_server=$email_server;
+        $Mon_Certificat->Numero_serie=$Numero_serie;
+        $Mon_Certificat->DteOrigin=$DteOrigin;
+        $Mon_Certificat->Dtefin=$Dtefin;
+
+        $Mon_Certificat->save();
+
+        
 
     }
 }
