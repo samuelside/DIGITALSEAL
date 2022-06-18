@@ -30,7 +30,7 @@ Route::get('/logout', [AdminController::class, 'Dashboard'])->name('admin.logout
 Route::get('/register', [AdminController::class, 'AdminRegister'])->name('admin.register');
 
 Route::post('/register/create', [AdminController::class, 'AdminRegisterCreate'])->name('admin.register.create');
-
+Route::get('/consult2',[AdminController::class, 'consult'])->name('consult2');
 
 });
 

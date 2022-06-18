@@ -9,7 +9,7 @@ form {
 }
 
 #formRegi{
-    width: 900px;
+    width: 900px !important;
     padding: 30px 50px;
     border-radius: 0px;
 }

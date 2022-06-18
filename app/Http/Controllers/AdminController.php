@@ -75,10 +75,12 @@ class AdminController extends Controller
     } 
 
     public function consult(){
-        $certificate=certificate::all();
+        $certificates=certificate::all();
         //dd($admins);
-        return view('certif_voir',compact('certificate'));
+        return view('certif_voir',compact('certificates'));
     }
+
+    
 
     
 }

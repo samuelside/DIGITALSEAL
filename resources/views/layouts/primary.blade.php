@@ -45,8 +45,8 @@
                         Se connecter
                     </a>
                     <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
-                        <li><a class="dropdown-item" href="{{ route('login_admin') }}"> Administrateur</a></li>
-                        <li><a class="dropdown-item" href="{{ route('login_from') }}"> Utilisateur </a></li>
+                        <li><a class="dropdown-item" href="{{ route('login_admin') }}"> Participant</a></li>
+                        <li><a class="dropdown-item" href="{{ route('login_from') }}"> Administrateur </a></li>
                         <li><a class="dropdown-item" href="{{ route('login_user') }}"> Usager</a></li>
                     </ul>
                 </li>

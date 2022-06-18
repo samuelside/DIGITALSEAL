@@ -17,30 +17,26 @@
     <thead>
       <tr>
         <th>id</th>
-      <th>categorie</th>
-      <th>NomCommercial</th>
-      <th>CodePostal</th>
       <th>Pays</th>
-      <th>name</th>
-      <th>prenom</th>
-      <th>CNI</th>
-      <th>email</th>
-      <th>identifiant</th>
+      <th>Nom_Orga</th>
+      <th>email_server</th>
+      <th>Numero_serie</th>
+      <th>DteOrigin</th>
+      <th>Dtefin</th>
+     
       </tr>
     </thead>
     <tbody>
-        @foreach ($admins as $admin)
+        @foreach ($certificates as $certificate)
             <tr>
-                <td>{{ $admin->id }}</td>
-                <td>{{ $admin->categorie }}</td>
-                <td>{{ $admin->NomCommercial }}</td>
-                <td>{{ $admin->CodePostal }}</td>
-                <td>{{ $admin->Pays }}</td>
-                <td>{{ $admin->name }}</td>
-                <td>{{ $admin->prenom }}</td>
-                <td>{{ $admin->CNI }}</td>
-                <td>{{ $admin->email }}</td>
-                <td>{{ $admin->identifiant }}</td>
+                <td>{{ $certificate->id }}</td>
+                <td>{{ $certificate->Pays }}</td>
+                <td>{{ $certificate->Nom_Orga }}</td>
+                <td>{{ $certificate->email_server }}</td>
+                <td>{{ $certificate->Numero_serie }}</td>
+                <td>{{ $certificate->DteOrigin }}</td>
+                <td>{{ $certificate->Dtefin }}</td>
+                
             </tr>
         @endforeach
     </tbody>
