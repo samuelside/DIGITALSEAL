@@ -10,64 +10,64 @@
 
 @section('contenu')
     <div class="formulaire">
-        <form action="{{ route('admin.register.create') }}" method='post'>
+        <form action="{{ route('admin.register.create') }}" method='post' id="formRegi">
             @csrf
             <h1>ENREGISTREMENT ADMINISTRATEUR</h1>
-            <div class="form-group">
-                <select name="categorie" size="1">←
-                    <option value="Administration publique"> Administration publique </option>
-                    <option value="Administration privée">Administration privée </option>
-                    <option value="ONG">ONG</option>
-                    </select>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group mb-3">
+                        <label class="form-label">Raison sociale</label>
+                        <select class="form-select" name="categorie" size="1">
+                            <option disabled selected>Choisissez une raison</option>
+                            <option value="Administration publique"> Administration publique </option>
+                            <option value="Administration privée">Administration privée </option>
+                            <option value="ONG">ONG</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Nom Commercial </label>
+                        <input type="text" class="form-control" id="NomCommercial" name='NomCommercial' placeholder="">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Code Postal </label>
+                        <input type="text" class="form-control" id="CodePostal" name='CodePostal' placeholder="">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="exampleInputEmail1" class="form-label"> Pays d'origine </label>
+                        <input type="text" class="form-control" id="Pays" name='Pays' placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" class="form-label">Numéro CNI </label>
+                        <input type="text" class="form-control" id="CNI" name='CNI' placeholder="">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Entrer votre nom</label>
+                        <input type="text" class="form-control" id="name" name='name' placeholder="">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Entrer votre prenom </label>
+                        <input type="text" class="form-control" id="prenom" name='prenom' placeholder="">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Votre identifiant</label>
+                        <input type="text" class="form-control" id="identifiant" name='identifiant'>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Entrer votre adresse email</label>
+                        <input type="Email" class="form-control" id="email" name='email'
+                            aria-describedby="emailHelp" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name='password'
+                            placeholder="Mot de passe">
+                    </div>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="exampleInputEmail1">Nom Commercial </label>
-                <input type="text" class="form-control" id="NomCommercial" name='NomCommercial' placeholder="">
-            </div>
-
-
-            <div class="form-group">
-                <label for="exampleInputEmail1">Code Postal </label>
-                <input type="text" class="form-control" id="CodePostal" name='CodePostal' placeholder="">
-            </div>
-
-            <div class="form-group">
-                <label for="exampleInputEmail1"> Pays d'origine </label>
-                <input type="text" class="form-control" id="Pays" name='Pays' placeholder="">
-            </div>
-
-            <div class="form-group">
-                <label for="exampleInputEmail1">Numéro  CNI </label>
-                <input type="text" class="form-control" id="CNI" name='CNI' placeholder="">
-            </div>
-
-            <div class="form-group">
-                <label for="exampleInputEmail1">Entrer votre nom</label>
-                <input type="text" class="form-control" id="name" name='name' placeholder="">
-            </div>
-            
-            <div class="form-group">
-                <label for="exampleInputEmail1">Entrer votre prenom </label>
-                <input type="text" class="form-control" id="prenom" name='prenom' placeholder="">
-            </div>
-            
-
-
-            <div class="form-group">
-                <label for="exampleInputEmail1">Votre identifiant</label>
-                <input type="text" class="form-control" id="identifiant" name='identifiant'>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Entrer votre adresse email</label>
-                <input type="Email" class="form-control" id="email" name='email' aria-describedby="emailHelp"
-                    placeholder="Enter email">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Password</label>
-                <input type="password" class="form-control" id="password" name='password' placeholder="Mot de passe">
-            </div>
-            <button id="boutonSoumettre" type="submit" class="btn">Se connecter </button>
+            <button id="boutonSoumettre" type="submit" class="btn">S'enregistrer</button>
             <div class="registration">
                 <a href="{{ route('login_admin') }}">Déjà enregistré ? Connectez-vous !</a>
             </div>
