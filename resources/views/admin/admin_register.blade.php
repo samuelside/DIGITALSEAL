@@ -30,7 +30,7 @@
                 <label for="exampleInputEmail1">Password</label>
                 <input type="password" class="form-control" id="password" name='password' placeholder="Mot de passe">
             </div>
-            <button id="boutonSoumettre" type="submit" class="btn">Se connecter </button>
+            <button id="boutonSoumettre" type="submit" class="btn">S'enregistrer</button>
             <div class="registration">
                 <a href="{{ route('login_admin') }}">Déjà enregistré ? Connectez-vous !</a>
             </div>
