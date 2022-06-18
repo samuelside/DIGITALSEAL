@@ -1,34 +1,47 @@
-form{
-
-    width: 35%;
+form {
     text-align: 100px;
     display: block;
-    }
-    
-    .form-control{
-    
-        width: 35%
-    }
-    
-    body{
-    
-        background-color:#e9ecef !important;
-    
-    }
-    
-    .cc-navbar{
-    
-    background-color: rgba(255,255,255,1);
-    }
-    
-    .btn-primary{
-    
-      color:darkorange;
-      border-color: darkorange; 
-      transition: 0.5s;
-    }
-    
-    
-        
-    
-    
+    margin: auto;
+    width: 500px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+form>h1 {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+.formulaire {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+body {
+    background-color: #e9ecef !important;
+}
+
+#boutonSoumettre {
+    color: white;
+    background-color: darkorange;
+    transition: 0.5s;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.registration a{
+    width: 100%;
+    display: inline-block;
+    color: grey;
+    text-align: center;
+    font-size: 13px;
+    text-decoration: none;
+    margin-top: 15px;
+}

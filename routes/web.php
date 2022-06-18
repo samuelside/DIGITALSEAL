@@ -61,7 +61,7 @@ Route::prefix('usager')->group(function(){
 //-----------routes Utilisateur--------//
 
 Route::prefix('utilisateur')->group(function(){
-    Route::get('/login', [UtilisateurController::class, 'Index'])->name('login_form');
+    Route::get('/login', [UtilisateurController::class, 'Index'])->name('login_from');
     Route::post('/login/owner', [UtilisateurController::class, 'Login'])->name('utilisateur.login');
     Route::get('/dashboard', [UtilisateurController::class, 'Dashboard'])->name('utilisateur.dashboard')->middleware('utilisateur');
     Route::get('/logout', [UtilisateurController::class, 'Dashboard'])->name('utilisateur.logout')->middleware('utilisateur');
@@ -92,6 +92,9 @@ Route::get('/show', [CertificateController::class, 'show_page'])->name('certific
 Route::get('/show/one', [CertificateController::class, 'verified_page'])->name('certificat_test');
 Route::post('/verified', [CertificateController::class, 'verified_certificate'])->name('certificat_verif');
 Route::get('/liste', [CertificateController::class, 'show_liste'])->name('liste_certificat');
+Route::post('/verified', [CEVController::class, 'verified'])->name('verifions');
+Route::get('/verifions',[CEVController::class,'show_page_verification'])->name('verif');
+
 
 Route::get('/', function () {
     return view('PageAcceuil');

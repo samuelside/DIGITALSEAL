@@ -21,6 +21,7 @@ class CreateCEVSTable extends Migration
             $table->string('LienDoc');
             $table->integer('NumDoc');      
             $table->string('EmailUsager');
+            $table->string('IDdecachet');
         });
     }
 

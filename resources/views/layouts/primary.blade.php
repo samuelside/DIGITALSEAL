@@ -46,13 +46,15 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
                         <li><a class="dropdown-item" href="{{ route('login_admin') }}"> Administrateur</a></li>
-                        <li><a class="dropdown-item" href="{{ route('login_form') }}"> Utilisateur </a></li>
+                        <li><a class="dropdown-item" href="{{ route('login_from') }}"> Utilisateur </a></li>
                         <li><a class="dropdown-item" href="{{ route('login_user') }}"> Usager</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
     </nav>
+</br>
+
 
     @yield('contenu')
 </body>

@@ -10,7 +10,7 @@
 
 @section('contenu')
     <div class="formulaire">
-        <form action="{{ route('admin.login') }}" method='post'>
+        <form action="{{ route('admin.register.create') }}" method='post'>
             @csrf
             <h1>ENREGISTREMENT ADMINISTRATEUR</h1>
             <div class="form-group">

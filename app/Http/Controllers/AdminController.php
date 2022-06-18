@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use Carbon\Carbon;
+use Illuminate\Auth\SessionGuard;
 
 class AdminController extends Controller
 {

@@ -45,16 +45,15 @@ class CertificateController extends Controller
 
     }
 
-    public function verified_certificate(){
-      
-        $get=Certificate::where('id_Certificate','azerty')->first();
-        if ($get==TRUE){
-        return redirect()->route('liste_certificat')->with('error','vous etes connecté');
+    public function verified_certificate(Request $request){
+        $get=Certificate::where('id_Certificate','=',$request->id_Certificate)->first();
+        if ($get!=null){
+        return redirect()->route('liste_certificat');
     
         }
 
       else {
-        return back()->with('votre certificat est invalide');
+        return 'Alerte';
         }
 
     }

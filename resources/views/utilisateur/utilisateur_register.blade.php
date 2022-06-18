@@ -31,7 +31,7 @@
             </div>
             <button id="boutonSoumettre" type="submit" class="btn">Se connecter </button>
             <div class="registration">
-                <a href="{{ route('login_form') }}">Déjà enregistré ? Connectez-vous !</a>
+                <a href="{{ route('login_from') }}">Déjà enregistré ? Connectez-vous !</a>
             </div>
         </form>
     </div>

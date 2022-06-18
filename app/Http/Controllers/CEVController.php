@@ -12,9 +12,11 @@ use Endroid\QrCode\Logo\Logo;
 use Endroid\QrCode\RoundBlockSizeMode\RoundBlockSizeModeMargin;
 use Endroid\QrCode\Writer\PngWriter;
 use App\Http\Controllers\Controller;
+use App\Mail\DIGITALSEAL;
 use Codedge\Fpdf\Fpdf\Fpdf;
 use Illuminate\Support\Facades\Storage;
 use setasign\Fpdi\Fpdi;
+use Illuminate\Support\Facades\Mail;
 
 
 
@@ -41,17 +43,20 @@ class CEVController extends Controller
         $validated=$request->validate([
            'NomOrga'=>['required','max:255'],
            'IDARTCI' => ['required ', 'max: 255'],
-           'LienDoc' => ['required ', 'max: 255'],
            'NumDoc' => ['required',  'max:255'],
            'EmailUsager' => ['required', 'max:255'],
            
-        
-        
         ]);
         
         Storage::disk('public')->putFileAs('2D-doc',$request->file('Document'),'side.pdf');
         $filePdf=fopen(Storage::disk('public')->path('2D-doc/side.pdf'), 'r');
         $filePdf1=fread($filePdf,filesize(Storage::disk('public')->path('2D-doc/side.pdf')));
+
+        Storage::disk('public')->putFileAs('2D-doc',$request->file('Certificat'),'side.pem');
+        $filetxt=fopen(Storage::disk('public')->path('2D-doc/side.pem'), 'r');
+        $filetxt1=fread($filetxt,filesize(Storage::disk('public')->path('2D-doc/side.pem')));
+        $contain=openssl_x509_parse($filetxt1, true);
+        $IDdecachet = $contain['serialNumberHex'];
         
         if ($filePdf==TRUE){
         $fichier = file_get_contents(Storage::disk('public')->path('2D-doc/side.pdf'));
@@ -62,38 +67,26 @@ class CEVController extends Controller
         $Mon_CEV= new CEV;
         $Mon_CEV->NomOrga = $request->NomOrga;
         $Mon_CEV->IDARTCI = $request->IDARTCI;
-        $Mon_CEV->LienDoc = $request->LienDoc;
         $Mon_CEV->NumDoc = $request->NumDoc;
         $Mon_CEV->EmailUsager = $request->EmailUsager;
+        $Mon_CEV->IDdecachet = $IDdecachet;
+        
+    
          
         $Mon_CEV->save();
         $id= $Mon_CEV->id;
         $Mon_CEV= CEV::find($id);
         
         $data = json_decode($Mon_CEV, true);
-                //var_dump ($data);
-                //echo $data['Typedoc'];
-        
-        
-                $lire = fopen('C:\Users\samue\device2.pem', 'rb');
-                $lire1 = fread($lire, filesize('C:\Users\samue\device2.pem'));
-                $voir1 = openssl_x509_parse($lire1, true);
-        
-                $lire2 = fopen('C:\Users\samue\privée.pem', 'rb');
-                $lire3 = fread($lire2, filesize('C:\Users\samue\privée.pem'));
-                $voir3 = openssl_x509_parse($lire3, true);
-                //echo $voir['issuer']['CN'];
-        
-        
+            
         
                 $NomOrga = $data['NomOrga'];
                 $IDARTCI = $data['IDARTCI'];
-                $LienDoc = $data['LienDoc'];
                 $NumDoc = $data['NumDoc'];
-                $IDdecachet = $voir3['serialNumberHex'];
-                $IDsign = $voir1['serialNumberHex'];
+                $IDdecachet = $contain['serialNumberHex'];
+               // $IDsign = $voir1['serialNumberHex'];
                 $EmailUsager = $data['EmailUsager'];
-                $Entete = $IDARTCI . "<GS>" . $IDdecachet . "<GS>" . "<GS>" . $LienDoc . "<GS>" . $NomOrga;
+                $Entete = $IDARTCI . "<GS>" . $IDdecachet . "<GS>" . "<GS>"  . "<GS>" . $NomOrga;
         
         
                 if ($NumDoc == TRUE && $NomOrga == TRUE && $Entete == TRUE) {
@@ -101,7 +94,7 @@ class CEVController extends Controller
                     //$publicKey  = file_get_contents('C:\Users\samue\public.key');
                     $privateKey = file_get_contents('C:\Users\samue\privée.key');
         
-                    $messagecrypt = $IDsign . $NumDoc . $NomOrga;
+                    $messagecrypt = $NumDoc . $NomOrga;
         
                     // On crypte avec la clé publique
                     $h = hash("sha256", $messagecrypt);
@@ -134,7 +127,7 @@ class CEVController extends Controller
                         // (C1) SAVE TO FILE
                         $result->saveToFile(__DIR__.'/qrcode.png');
                         rename('C:\laragon\www\DIGITALSEAL\app\Http\Controllers\qrcode.png','C:\laragon\www\DIGITALSEAL\public\im.png');
-                    
+                        
                    
                 $fpdi = new Fpdi();
                 $fpdi->setSourceFile(Storage::disk('public')->path('2D-doc/side.pdf'));
@@ -144,7 +137,8 @@ class CEVController extends Controller
                     $file4=$fpdi->importPage($i);
                     $fpdi->useTemplate($file4,0,0);
                 }
-        
+                //Mail::to($EmailUsager)->send(new DIGITALSEAL());
+                        
                 $fpdi->SetFont('Arial','B',14);
                 $fpdi->Image('im.png',170,260,40);       
                 
@@ -153,4 +147,37 @@ class CEVController extends Controller
                            
             }
 }
+            public function verified(Request $request ){
+               
+                $get=CEV::where('IDdecachet','=',$request->IDdecachet)->first();
+                if ($get!=null){
+                return redirect()->route('liste_certificat');
+            
+                }
+        
+              else {
+                return 'Alerte';
+                }
+
+        
+
+
+            }
+
+            public function show_page_verification(){
+
+
+                return view('verified_Certificate');
+            }
+/*
+            public function sendMail(){
+
+
+                Mail::to('test@gmail.com')->send(new DIGITALSEAL());
+                return view ('emails.DIGITALSEAL')
+
+            }
+
+            */
 }
+
