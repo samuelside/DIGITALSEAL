@@ -18,7 +18,13 @@ class Admin  extends Authenticatable
      */
     protected $guard='admin';
     protected $fillable = [
+        'categorie',
+        'NomCommercial',
+        'CodePostal',
+        'Pays',
         'name',
+        'prenom',
+        'CNI',
         'email',
         'password',
         'identifiant'

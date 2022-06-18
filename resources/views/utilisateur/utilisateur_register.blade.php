@@ -17,10 +17,7 @@
                 <label for="exampleInputEmail1">Entrer votre nom</label>
                 <input type="text" class="form-control" id="name" name='name' aria-describedby="emailHelp" placeholder="">
             </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Entrer le nom de l'organisation</label>
-                <input type="text" class="form-control" id="NomOrga" name='NomOrga' placeholder=" ">
-            </div>
+            
             <div class="form-group">
                 <label for="exampleInputEmail1">Entrer votre adress email</label>
                 <input type="Email" class="form-control" id="email" name='email' aria-describedby="emailHelp" placeholder="adresse@email.com">

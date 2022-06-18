@@ -86,7 +86,7 @@ class CEVController extends Controller
                 $IDdecachet = $contain['serialNumberHex'];
                // $IDsign = $voir1['serialNumberHex'];
                 $EmailUsager = $data['EmailUsager'];
-                $Entete = $IDARTCI . "<GS>" . $IDdecachet . "<GS>" . "<GS>"  . "<GS>" . $NomOrga;
+                $Entete = $IDARTCI . "<GS>" . $IDdecachet . "<GS>" . "<GS>" . $NomOrga;
         
         
                 if ($NumDoc == TRUE && $NomOrga == TRUE && $Entete == TRUE) {

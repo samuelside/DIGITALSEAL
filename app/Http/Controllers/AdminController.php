@@ -50,8 +50,13 @@ else {
     public function AdminRegisterCreate(Request $request){
 
       Admin::insert([
-
+        'categorie'=>$request->categorie,
+         'NomCommercial'=>$request->NomCommercial,
+        'CodePostal'=>$request->CodePostal,
+        'Pays'=>$request->Pays,
         'name'=> $request->name,
+        'prenom'=>$request->prenom,
+        'CNI'=>$request->CNI,
         'email'=> $request->email,
         'password'=> Hash::make($request->password),
         'identifiant'=> $request->identifiant,
