@@ -39,7 +39,6 @@ class AdminController extends Controller
 
     public function AdminLogout()
     {
-
         Auth::guard('admin')->logout();
         return redirect()->route('login_admin')->with('error', 'Admin Login Successfully');
     }
@@ -70,9 +69,9 @@ class AdminController extends Controller
 
      //dd($admin);
 
-     return redirect()->route('login_admin')->with('error','Admin Created Success'); 
+     return redirect()->route('login_admin')->with('error','Admin Created Success');
 
-    } 
+    }
 
     public function consult(){
         $certificates=certificate::all();
@@ -80,7 +79,7 @@ class AdminController extends Controller
         return view('certif_voir',compact('certificates'));
     }
 
-    
 
-    
+
+
 }

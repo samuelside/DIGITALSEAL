@@ -8,16 +8,26 @@
     Demande de CEV
 @endsection
 
+@section('liens')
+    <a href="{{ route('admin.dashboard') }}" class="nav-link">Tableau de bord</a>
+    <a href="{{ route('demand_CEV') }}" class="nav-link active">Créer un cachet électronique visible</a>
+    <a href="{{ route('consult2') }}" class="nav-link">Consulter la liste des certificats</a>
+    <a href="#" class="nav-link">Notifications</a>
+    <a href="#" class="nav-link">Les demandes en cours</a>
+    <a href="#" class="nav-link">Insérer une chemise</a>
+    <a href="{{ route('admin.logout') }}" class="nav-link">Se deconnecter</a>
+@endsection
+
 @section('contenu')
     <form method="post" action="{{ route('CEV_Doc') }}" enctype="multipart/form-data">
         @csrf
-        <h3 class="form-title text-center mb-4">Demande de CEV </h3>
+        <h2 class="form-title text-center mb-2">Demande de CEV </h2>
         <div class="row p-4">
             <div class="col-lg-6">
                 <div class="form-group mb-3">
                     <label for="NomOrga" class="form-label">Nom de l'Organisation</label>
                     <input type="text" id="NomOrga" class="form-control" id="NomOrga" name="NomOrga" aria-describedby="emailHelp"
-                        placeholder="ORANGE">
+                        placeholder="Organisation">
                 </div>
                 <div class="form-group mb-3">
                     <label for="IDARTCI" class="form-label">Identifiant de l'autorité de certification</label>
@@ -27,12 +37,12 @@
                 <div class="form-group mb-3">
                     <label for="LienDoc" class="form-label">Lien vers le 2D-DOC</label>
                     <input type="text" class="form-control" id="LienDoc" name="LienDoc" aria-describedby="emailHelp"
-                        placeholder="">
+                        placeholder="https://www.2D-DOC.ci">
                 </div>
                 <div class="form-group mb-3">
                     <label for="NumDoc" class="form-label">Numéro du document</label>
                     <input type="number" class="form-control" id="NumDoc" name="NumDoc" aria-describedby="emailHelp"
-                        placeholder="526278">
+                        placeholder="Numéro">
                 </div>
             </div>
             <div class="col-lg-6">
