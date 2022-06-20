@@ -25,21 +25,22 @@ body {
     text-decoration: none;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out
 }
-.main{
+
+.main {
     display: flex;
     flex-direction: row;
     height: 100%;
     width: 100%;
 }
 
-#sidebarMenu{
+#sidebarMenu {
     padding-top: 50px;
     height: 100%;
     border-right: 1px solid rgb(175, 172, 172);
     width: 25%;
 }
 
-#sidebarMenu a{
+#sidebarMenu a {
     color: black;
     margin: 5px 1em;
     padding: 2px 10px;
@@ -47,14 +48,31 @@ body {
     transition: .2s;
 }
 
-#sidebarMenu a:hover{
+#sidebarMenu a:hover {
     border: 1px solid gray;
     border-radius: 5px;
     /* box-shadow: 0px 1px 5px gray; */
 }
 
-.contenu{
+.contenu {
     padding: 10px 10px;
     width: 75%;
 }
 
+.active {
+    color: white !important;
+    border-radius: 5px;
+    background-color: #438af5;
+}
+
+.infosAuth{
+    border: 1px solid rgb(194, 193, 193);
+}
+
+.infosAuth th {
+    background-color: whitesmoke !important;
+}
+
+.tableList th{
+    background-color: whitesmoke !important;
+}

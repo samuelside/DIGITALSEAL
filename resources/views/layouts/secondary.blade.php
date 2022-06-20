@@ -58,12 +58,7 @@
 
     <div class="main">
         <div class="navbar-nav" id="sidebarMenu">
-            <a href="{{ route('demand_CEV') }}" class="nav-link">Créer un cachet électronique visible</a>
-            <a href="{{ route('consult2') }}" class="nav-link">Consulter la liste des certificats</a>
-            <a href="#" class="nav-link">Notifications</a>
-            <a href="#" class="nav-link">Les demandes en cours</a>
-            <a href="#" class="nav-link">Insérer une chemise</a>
-            <a href="{{ route('login_admin') }}" class="nav-link">Se deconnecter</a>
+            @yield('liens')
         </div>
         <div class="contenu">
             @yield('contenu')

@@ -4,8 +4,44 @@
     Tableau de bord
 @endsection
 
+@section('liens')
+    <a href="{{ route('admin.dashboard') }}" class="nav-link active">Tableau de bord</a>
+    <a href="{{ route('demand_CEV') }}" class="nav-link">Créer un cachet électronique visible</a>
+    <a href="{{ route('consult2') }}" class="nav-link">Consulter la liste des certificats</a>
+    <a href="#" class="nav-link">Notifications</a>
+    <a href="#" class="nav-link">Les demandes en cours</a>
+    <a href="#" class="nav-link">Insérer une chemise</a>
+    <a href="{{ route('admin.logout') }}" class="nav-link">Se deconnecter</a>
+@endsection
+
 @section('contenu')
-    <h4 class="text-center mt-5">Bienvenue sur votre tableau de bord</h4>
+    <h2 class="text-center mt-5 mb-4">Bienvenue sur votre tableau de bord</h2>
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <table class="table infosAuth">
+                <tr>
+                    <th>Type de compte</th>
+                    <td>Administrateur</td>
+                </tr>
+                <tr>
+                    <th>Nom administrateur</th>
+                    <td>{{ Auth::guard('admin')->user()->name }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ Auth::guard('admin')->user()->email }}</td>
+                </tr>
+                <tr>
+                    <th>Catégorie</th>
+                    <td>{{ Auth::guard('admin')->user()->categorie }}</td>
+                </tr>
+                <tr>
+                    <th>Nom de l'organisation</th>
+                    <td>{{ Auth::guard('admin')->user()->NomCommercial }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
         integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
     </script>

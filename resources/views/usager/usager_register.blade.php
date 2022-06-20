@@ -15,7 +15,7 @@
             <h1>ENREGISTREMENT USAGER</h1>
             <div class="form-group">
                 <label for="exampleInputEmail1">Entrer votre nom</label>
-                <input type="text" class="form-control" id="name" name='name' placeholder="">
+                <input type="text" class="form-control" id="name" name='name' placeholder="Nom">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Entrer votre adresse email</label>
@@ -28,7 +28,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Entrer votre numéro de téléphone</label>
-                <input type="number" class="form-control" id="numéroTel" name='numéroTel' placeholder=" ">
+                <input type="number" class="form-control" id="numéroTel" name='numéroTel' placeholder="+22500000000">
             </div>
             <button id="boutonSoumettre" type="submit" class="btn">S'enregistrer</button>
             <div class="registration">
