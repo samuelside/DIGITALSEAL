@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\utilisateur;
-use Carbon\Carbon;
 use App\Models\Admin;
 use App\Models\certificate;
 use Illuminate\Support\Facades\Storage;

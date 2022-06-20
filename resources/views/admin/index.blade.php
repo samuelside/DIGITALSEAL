@@ -15,33 +15,32 @@
 @endsection
 
 @section('contenu')
-    <h2 class="text-center mt-5 mb-4">Bienvenue sur votre tableau de bord</h2>
-    <div class="row justify-content-center">
-        <div class="col-lg-7">
-            <table class="table infosAuth">
-                <tr>
-                    <th>Type de compte</th>
-                    <td>Administrateur</td>
-                </tr>
-                <tr>
-                    <th>Nom administrateur</th>
-                    <td>{{ Auth::guard('admin')->user()->name }}</td>
-                </tr>
-                <tr>
-                    <th>Email</th>
-                    <td>{{ Auth::guard('admin')->user()->email }}</td>
-                </tr>
-                <tr>
-                    <th>Catégorie</th>
-                    <td>{{ Auth::guard('admin')->user()->categorie }}</td>
-                </tr>
-                <tr>
-                    <th>Nom de l'organisation</th>
-                    <td>{{ Auth::guard('admin')->user()->NomCommercial }}</td>
-                </tr>
-            </table>
-        </div>
+    <div class="border rounded-3 col-lg-8 mt-4 container p-4">
+        <h2 class="text-center mt-3 mb-4">Bienvenue sur votre tableau de bord</h2>
+        <table class="table infosAuth">
+            <tr>
+                <th>Type de compte</th>
+                <td>Administrateur</td>
+            </tr>
+            <tr>
+                <th>Nom administrateur</th>
+                <td>{{ Auth::guard('admin')->user()->name }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ Auth::guard('admin')->user()->email }}</td>
+            </tr>
+            <tr>
+                <th>Catégorie</th>
+                <td>{{ Auth::guard('admin')->user()->categorie }}</td>
+            </tr>
+            <tr>
+                <th>Nom de l'organisation</th>
+                <td>{{ Auth::guard('admin')->user()->NomCommercial }}</td>
+            </tr>
+        </table>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
         integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
     </script>
