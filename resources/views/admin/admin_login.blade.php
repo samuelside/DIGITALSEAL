@@ -13,11 +13,7 @@
         <form action="{{ route('admin.login') }}" method='post'>
             @csrf
             <h1>CONNEXION ADMINISTRATEUR</h1>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Entrer votre identifiant</label>
-                <input type="text" class="form-control" id="identifiant" name='identifiant' aria-describedby="emailHelp"
-                    placeholder=" ">
-            </div>
+            
             <div class="form-group">
                 <label for="exampleInputEmail1">Entrer votre adresse email</label>
                 <input type="Email" class="form-control" id="email" name='email' aria-describedby="emailHelp"

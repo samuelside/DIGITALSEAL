@@ -51,10 +51,6 @@
                         <input type="text" class="form-control" id="prenom" name='prenom' placeholder="">
                     </div>
                     <div class="form-group mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Votre identifiant</label>
-                        <input type="text" class="form-control" id="identifiant" name='identifiant'>
-                    </div>
-                    <div class="form-group mb-3">
                         <label for="exampleInputEmail1" class="form-label">Entrer votre adresse email</label>
                         <input type="Email" class="form-control" id="email" name='email'
                             aria-describedby="emailHelp" placeholder="Enter email">

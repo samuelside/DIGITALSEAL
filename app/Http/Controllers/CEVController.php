@@ -51,12 +51,16 @@ class CEVController extends Controller
         Storage::disk('public')->putFileAs('2D-doc',$request->file('Document'),'side.pdf');
         $filePdf=fopen(Storage::disk('public')->path('2D-doc/side.pdf'), 'r');
         $filePdf1=fread($filePdf,filesize(Storage::disk('public')->path('2D-doc/side.pdf')));
-
+         /*
         Storage::disk('public')->putFileAs('2D-doc',$request->file('Certificat'),'side.pem');
         $filetxt=fopen(Storage::disk('public')->path('2D-doc/side.pem'), 'r');
         $filetxt1=fread($filetxt,filesize(Storage::disk('public')->path('2D-doc/side.pem')));
         $contain=openssl_x509_parse($filetxt1, true);
         $IDdecachet = $contain['serialNumberHex'];
+*/
+        $lire = fopen('C:\Users\samue\rsacert.pem', 'rb');
+        $lire1 = fread($lire, filesize('C:\Users\samue\rsacert.pem'));
+        $voir1 = openssl_x509_parse($lire1, true);
         
         if ($filePdf==TRUE){
         $fichier = file_get_contents(Storage::disk('public')->path('2D-doc/side.pdf'));
@@ -69,7 +73,7 @@ class CEVController extends Controller
         $Mon_CEV->IDARTCI = $request->IDARTCI;
         $Mon_CEV->NumDoc = $request->NumDoc;
         $Mon_CEV->EmailUsager = $request->EmailUsager;
-        $Mon_CEV->IDdecachet = $IDdecachet;
+        
         
     
          
@@ -83,7 +87,7 @@ class CEVController extends Controller
                 $NomOrga = $data['NomOrga'];
                 $IDARTCI = $data['IDARTCI'];
                 $NumDoc = $data['NumDoc'];
-                $IDdecachet = $contain['serialNumberHex'];
+                $IDdecachet = $voir1['serialNumberHex'];
                // $IDsign = $voir1['serialNumberHex'];
                 $EmailUsager = $data['EmailUsager'];
                 $Entete = $IDARTCI . "<GS>" . $IDdecachet . "<GS>" . "<GS>" . $NomOrga;

@@ -28,7 +28,7 @@ class AdminController extends Controller
     public function Login(Request $request)
     {
         $check = $request->all();
-        if (Auth::guard('admin')->attempt(['email' => $check['email'], 'password' => $check['password'], 'identifiant' => $check['identifiant']])) {
+        if (Auth::guard('admin')->attempt(['email' => $check['email'], 'password' => $check['password']])) {
             return redirect()->route('admin.dashboard')->with('error', 'vous etes connecté');
         } else {
             return back()->with('error', 'Invalid Email or Password');
@@ -63,7 +63,6 @@ class AdminController extends Controller
             'CNI' => $request->CNI,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'identifiant' => $request->identifiant,
             'created_at' => Carbon::now(),
 
         ]);

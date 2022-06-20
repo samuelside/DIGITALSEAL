@@ -18,10 +18,9 @@ class CreateCEVSTable extends Migration
             $table->timestamps();
             $table->string('NomOrga');
             $table->string('IDARTCI'); 
-            $table->string('LienDoc');
             $table->integer('NumDoc');      
             $table->string('EmailUsager');
-            $table->string('IDdecachet');
+    
         });
     }
 

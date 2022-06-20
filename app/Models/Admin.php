@@ -27,7 +27,7 @@ class Admin  extends Authenticatable
         'CNI',
         'email',
         'password',
-        'identifiant'
+        
     ];
 
     /**

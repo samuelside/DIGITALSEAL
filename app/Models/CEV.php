@@ -15,7 +15,7 @@ class CEV extends Model
         'LienDoc',
         'NumDoc',
         'EmailUsager',
-        'IDdecachet'
+        
 
 
     ];
